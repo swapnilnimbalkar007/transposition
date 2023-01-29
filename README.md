@@ -1,5 +1,3 @@
-# landing-page
-making landing page for oasis infobyte internship
 <!DOCTYPE html>
 <html lang="en">
 
