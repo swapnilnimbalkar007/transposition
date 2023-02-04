@@ -1,144 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+import java.util.Scanner;
 
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <style type="text/css">
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+public class MovieBookingSystem {
+  static int availableSeats = 20;
 
-        header {
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(rgba(105, 74, 74, 0.8), rgba(36, 34, 34, 0.2)), url("Background.jpg");
-            background-size: cover;
-        }
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
 
-        nav {
-            width: 100%;
-            height: 100px;
-            background-size: cover;
-            color: white;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-family: sans-serif;
-        }
+    System.out.println("Welcome to the Movie Ticket Booking System");
+    System.out.println("Available seats: " + availableSeats);
 
-        .logo {
-            font-size: 2em;
-            letter-spacing: 2px;
-
-        }
-
-        .Menu a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 20px;
-            position: relative;
-        }
-
-        .Menu a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            border-bottom: 2px solid orange;
-            transition: 0.4s linear;
-        }
-
-        .Menu a:hover:before {
-            width: 90%;
-        }
-
-        .Register a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 20px;
-            background: orange;
-            border-radius: 5px;
-            transition: 0.4s linear;
-        }
-
-        .Register a:hover {
-            background: transparent;
-            border: 1px solid red;
-        }
-
-        .h-txt {
-            max-width: 650px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-        }
-
-        .h-txt span {
-            letter-spacing: 5px;
-        }
-
-        .h-txt h1 {
-            font-size: 3.5em;
-        }
-
-        .h-txt a {
-            text-decoration: none;
-            background: orange;
-            color: white;
-            padding: 15px, 25px;
-            letter-spacing: 5px;
-            transition: 0.4s linear;
-        }
-
-        .h-txt a:hover {
-            background: transparent;
-            border: 1px solid red;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <b>Oasis Infobyte</b>
-            </div>
-            <div class="Menu">
-                <a href="#"><b>Home</b></a>
-                <a href="#"><b>About</b></a>
-                <a href="#"><b>Services</b></a>
-                <a href="#"><b>Contact Us</b></a>
-            </div>
-            <div class="Register">
-                <a href="#">Register</a>
-        </nav>
-        <section class="h-txt">
-            <h1><b>LANDING PAGE</b></h1>
-            <h2><b>By Swapnil Nimbalkar @Oasis Infobyte intership</b></h2>
-            <br>
-            <h3><b>A landing page is one of the best web development projects for begineers.</b></h3>
-            <a href="#"><b>Intership</b></a>
-        </section>
-    </header>
-</body>
-
-<footer>
-    <p><a href="© Copyright OASIS INFOBYTE. All Rights Reserved Designed By Team OASIS" </a></p>
-</footer>
-
-</html>
+    while (true) {
+      System.out.print("Enter the number of seats to book (or 0 to exit): ");
+      int numSeats = sc.nextInt();
+      if (numSeats == 0) {
+        break;
+      }
+      if (numSeats > availableSeats) {
+        System.out.println("Sorry, we only have " + availableSeats + " seats available.");
+      } else {
+        availableSeats -= numSeats;
+        System.out.println("Booking confirmed! Enjoy the movie.");
+        System.out.println("Available seats: " + availableSeats);
+      }
+    }
+    System.out.println("Thanks for using the movie ticket booking system.");
+  }
+}
